@@ -18,11 +18,8 @@ public class UpdateChiffreAffaireOfAccountsTest {
         UpdateChiffreAffaireOfAccounts updatedBatch = new UpdateChiffreAffaireOfAccounts();
         Id batchId = Database.executeBatch(updatedBatch);
         Test.stopTest();
-
-        List<Account> accounts = [SELECT Id, Chiffre_d_affaire__c, (SELECT Id, Status, TotalAmount FROM Orders 
-                                  WHERE Status = 'Ordered') 
-                                  FROM Account 
-                                  WHERE Id IN (SELECT AccountId FROM Order WHERE Status = 'Ordered')];
+List<Account> accounts = [SELECT Id, Chiffre_d_affaire__c
+                                  FROM Account WHERE Id IN (SELECT AccountId FROM Order WHERE Status = 'Ordered')];
         
         for (Account account : accounts) {
             System.assertEquals(300000, account.chiffre_d_affaire__c);
