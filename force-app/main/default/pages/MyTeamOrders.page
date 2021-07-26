@@ -1,0 +1,12 @@
+<apex:page controller="MyTeamOrdersController">
+
+    <apex:pageBlock title="Total des commandes">
+    <div>
+        <h1>
+            Sum of my team orders: <apex:outputText value="  {!SumOrders}  €" />
+           
+        </h1>
+        
+    </div>
+</apex:pageBlock>
+</apex:page>

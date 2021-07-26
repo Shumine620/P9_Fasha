@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Future_Date__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(
+  WEEKDAY(TODAY()),
+  3, TODAY() + 2 + 3,
+  4, TODAY() + 2 + 3,
+  5, TODAY() + 2 + 3,
+  6, TODAY() + 1 + 3,
+  TODAY() + 3
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Future Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>
